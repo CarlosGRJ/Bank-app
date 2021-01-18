@@ -212,13 +212,13 @@ const accounts = [account1, account2, account3, account4];
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 console.log('movements ', movements);
 
-const firstWithdrawal = movements.find(mov => mov < 0);
-console.log('firstWithdrawal ', firstWithdrawal);
+// const firstWithdrawal = movements.find(mov => mov < 0);
+// console.log('firstWithdrawal ', firstWithdrawal);
 
-console.log(accounts);
+// console.log(accounts);
 
-const account = accounts.find(acc => acc.owner === 'Jessica Davis');
-console.log('account ', account);
+// const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+// console.log('account ', account);
 
 // Solución con For en lugar de find
 
@@ -230,3 +230,24 @@ console.log('account ', account);
 //     break;
 //   }
 // }
+
+//============LECTURE 158 ======================//
+
+// EQUALITY ---- 'INCLUDES' METHOD
+console.log(movements.includes(-130));
+
+// CONDITION ---- 'SOME' METHOD
+console.log(movements.some(mov => mov === -130));
+
+const anyDeposits = movements.some(mov => mov > 0);
+console.log('anyDeposits ', anyDeposits);
+
+// 'EVERY' METHOD
+console.log(movements.every(mov => mov > 0));
+console.log(account4.movements.every(mov => mov > 0));
+
+// Separate callback
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
