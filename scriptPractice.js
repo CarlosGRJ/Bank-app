@@ -251,3 +251,61 @@ const deposit = mov => mov > 0;
 console.log(movements.some(deposit));
 console.log(movements.every(deposit));
 console.log(movements.filter(deposit));
+
+//============LECTURE 159 ======================//
+
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log('arr ', arr.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log('arrDeep ', arrDeep.flat(2));
+
+// const accountMovements = accounts.map(acc => acc.movements);
+// console.log('accountMovements ', accountMovements);
+// const allMovements = accountMovements.flat();
+// console.log('allMovements ', allMovements);
+// const overalBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+
+// flat
+const overalBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log('overalBalance ', overalBalance);
+
+// flatMap
+const overalBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log('overalBalance2 ', overalBalance2);
+
+//============LECTURE 160 ======================//
+
+const owners = ['Carlos', 'Jonas', 'Zach', 'Adam', 'Martha'];
+console.log('owners sorted ', owners.sort());
+console.log('owners ', owners);
+
+// Numbers
+console.log(movements);
+
+// return < 0 A, B
+// return > 0 B, A
+
+// Ascending
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (b > a) return -1;
+// });
+// Better method for ascending sort
+movements.sort((a, b) => a - b);
+
+console.log('Ascending', movements);
+
+// Descending
+// movements.sort((a, b) => {
+//   if (a > b) return -1;
+//   if (b > a) return 1;
+// });
+// Better method for Descending sort
+movements.sort((a, b) => b - a);
+console.log('Descending', movements);
