@@ -309,3 +309,22 @@ console.log('Ascending', movements);
 // Better method for Descending sort
 movements.sort((a, b) => b - a);
 console.log('Descending', movements);
+
+//============LECTURE 161 ======================//
+const arrTest = [1, 2, 3, 4, 5, 6, 7];
+
+// Empty arrays + fill method
+const x = new Array(7);
+console.log('x ', x);
+// x.fill(1);
+x.fill(1, 3, 5);
+console.log('x ', x);
+
+arrTest.fill(23, 2, 6);
+console.log('arrTest ', arrTest);
+
+// Array.from
+const y = Array.from({ length: 7 }, () => 1);
+console.log('y ', y);
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log('z ', z);
